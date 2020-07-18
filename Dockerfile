@@ -18,10 +18,10 @@ RUN apt-get update \
 RUN pecl install grpc
 
 RUN pecl install xdebug
-RUN echo "xdebug.remote_enable=1\n" >> /etc/php/conf.d/docker-php-ext-xdebug.ini \
-         "xdebug.coverage_enable=1\n" >> /etc/php/conf.d/docker-php-ext-xdebug.ini \
-         "xdebug.idekey=\"PHPSTORM\"\n" >> /etc/php/conf.d/docker-php-ext-xdebug.ini \
-         "xdebug.remote_port=9001\n" >> /etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.remote_enable=1\n" >> /etc/php/7.3/fpm/conf.d/docker-php-ext-xdebug.ini \
+         "xdebug.coverage_enable=1\n" >> /etc/php/7.3/fpm/conf.d/docker-php-ext-xdebug.ini \
+         "xdebug.idekey=\"PHPSTORM\"\n" >> /etc/php/7.3/fpm/conf.d/docker-php-ext-xdebug.ini \
+         "xdebug.remote_port=9001\n" >> /etc/php/7.3/fpm/conf.d/docker-php-ext-xdebug.ini
 RUN docker-php-ext-enable xdebug
 
 RUN echo "extension=grpc.so" >> /etc/php/7.3/cli/conf.d/20-grpc.ini
